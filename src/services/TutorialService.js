@@ -17,11 +17,11 @@ const update = (id, data) => {
 }
 
 const remove = id => {
-    return http.remove(`tutorials/${id}`);
+    return http.delete(`tutorials/${id}`);
 }
 
 const removeAll = () => {
-    return http.remove(`/tutorials`);
+    return http.delete(`/tutorials`);
 }
 
 const findByTitle = title => {

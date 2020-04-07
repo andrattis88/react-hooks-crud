@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import {useState } from "react";
 import TutorialDataService from "../services/TutorialService";
+import AddTutorialView from "./AddTutorialView";
 
 const AddTutorial = () => {
 
-    const initialTutorialState = {
+    const initState = {
         id : null,
         title : "",
         description : "",
         published : false
     };
 
-    const [tutorial, setTutorial] = useState(initialTutorialState);
+    // Defines useStates
+    const [tutorial, setTutorial] = useState(initState);
     const [submitted, setSubmitted] = useState(false);
 
-    const handleInputChange = event => {
+    /* Event Handlers */
+    const inputChangeHandler = event => {
         const { name, value } = event.target;
         setTutorial({...tutorial, [name] : value });
     }
 
-    const saveTutorial = () => {
+    /* Actions */
+
+    const saveAction = () => {
         
         var data = {
             title : tutorial.title,
@@ -43,37 +48,39 @@ const AddTutorial = () => {
 
     }
 
-    const newTutorial = () => {
-        setTutorial(initialTutorialState);
+    const newAction = () => {
+        setTutorial(initState);
         setSubmitted(false);
     }
 
-    return (
-        <div className="submit-form">
-            { submitted ? (
-                <div>
-                    <h4>You submitted successfully!</h4>
-                    <button className="btn btn-success" onClick={newTutorial}>Add</button>
-                </div>
-            ) : (
-                <div>
+    /* viewObj */
 
-                    <div className="form-group">
-                        <label htmlFor="title">Title</label>
-                        <input type="text" name="title" id="title" className="form-control" value={tutorial.title} onChange={handleInputChange} required />
-                    </div>
+    const states = {
+        tutorial,
+        submitted 
+    };
 
-                    <div className="form-group">
-                        <label htmlFor="description">Description</label>
-                        <input type="text" name="description" id="description" className="form-control" value={tutorial.description} onChange={handleInputChange} required />
-                    </div>
+    const stateManagers = {
 
-                    <button onClick={saveTutorial} className="btn btn-success">Submit</button>
-                </div>
-            )}
-        </div>
-    ); 
-        
+    };
+
+    const eventHandlers = {
+        inputChangeHandler
+    };
+
+    const actions = {
+        newAction,
+        saveAction
+    };
+
+    const viewObj = {
+        states,
+        stateManagers,
+        eventHandlers,
+        actions
+    };
+
+    return (AddTutorialView(viewObj)); 
     
 };
 

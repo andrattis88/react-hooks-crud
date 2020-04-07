@@ -33,12 +33,12 @@ function App() {
 
           <div className="container mt-3">
               <Switch>
-                
+                <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
                 <Route exact path="/add" component={AddTutorial} />
                 
               </Switch>
           </div>
-      </div>
+       </div>
     </Router>
   );
 }
