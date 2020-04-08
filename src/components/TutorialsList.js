@@ -39,7 +39,7 @@ const TutorialList = () => {
 
         // Set useState for searchTitle
         setSearchTitle(searchTitle);
-    };
+    }
 
     /* Actions */
 
@@ -47,9 +47,9 @@ const TutorialList = () => {
     const getAllAction = () => {
         TutorialDataService.getAll()
             .then( response => {
-                    // Set useState for tutorials
-                    setTutorials(response.data);
-                    console.log(response.data);
+                console.log(response.data);
+                // Set useState for tutorials
+                setTutorials(response.data);                    
             })
             .catch(e => { 
                 console.log(e);
@@ -60,8 +60,8 @@ const TutorialList = () => {
     const removeAllAction = () => {
         TutorialDataService.removeAll()
             .then(response => {
-                    setListState();
-                    console.log(response.data);
+                console.log(response.data);    
+                setListState();                    
             })
             .catch(e => {
                 console.log(e);
@@ -72,8 +72,8 @@ const TutorialList = () => {
     const findByTitleAction = () => {
         TutorialDataService.findByTitle(searchTitle)
             .then(response => {
-                setTutorials(response.data);
                 console.log(response.data);
+                setTutorials(response.data);                
             })
             .catch(e => { 
                 console.log(e);

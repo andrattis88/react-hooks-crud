@@ -32,6 +32,7 @@ const AddTutorial = () => {
 
         TutorialDataService.create(data)
             .then(response => {
+                console.log(response.data);
                 setTutorial({
                     id : response.data.id,
                     title : response.data.title,
@@ -40,7 +41,7 @@ const AddTutorial = () => {
                 });
                 
                 setSubmitted(true);
-                console.log(response.data);
+                
             })
             .catch( e => {
                 console.log(e);
@@ -54,14 +55,15 @@ const AddTutorial = () => {
     }
 
     /* viewObj */
-
+    
     const states = {
         tutorial,
         submitted 
     };
 
     const stateManagers = {
-
+        setTutorial,
+        setSubmitted
     };
 
     const eventHandlers = {

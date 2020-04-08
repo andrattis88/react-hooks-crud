@@ -35,6 +35,7 @@ function App() {
               <Switch>
                 <Route exact path={["/", "/tutorials"]} component={TutorialsList} />
                 <Route exact path="/add" component={AddTutorial} />
+                <Route path="/tutorials/:id" component={Tutorial} />
                 
               </Switch>
           </div>

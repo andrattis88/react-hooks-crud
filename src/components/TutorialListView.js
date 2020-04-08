@@ -29,7 +29,7 @@ const TutorialListView = (viewObj) => (
                     }
                 </ul>
 
-                <button className="m-3 btn btnsm btn-danger" onClick={viewObj.actions.removeAllAction}>Remove All</button>
+                <button className="m-3 btn btn-sm btn-danger" onClick={viewObj.actions.removeAllAction}>Remove All</button>
             </div>
 
             <div className="col-md-6">
